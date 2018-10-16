@@ -60,12 +60,3 @@ window.addEventListener('load', function(evt) {
             .addEventListener('submit', submitdata);
 });
 
-
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-      console.log(request.videoTime);
-      document.getElementById("time").value=request.videoTime;
-  });
