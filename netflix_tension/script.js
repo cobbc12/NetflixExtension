@@ -1,6 +1,6 @@
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 var url = tabs[0].url;
-document.getElementById("url").value=url;
+    document.getElementById("url").value=url;
 });
 
 
@@ -19,7 +19,7 @@ function submitdata() {
     // Prepare the data to be POSTed by URLEncoding each field's contents
     var field1 = document.getElementById('field1');
     var field2 = document.getElementById('field2');
-
+    
     var params = 'field1=' + encodeURIComponent(field1.value) +
                  '&field2=' + encodeURIComponent(field2.value);
 
@@ -59,3 +59,13 @@ window.addEventListener('load', function(evt) {
     document.getElementById('form1')
             .addEventListener('submit', submitdata);
 });
+
+
+chrome.runtime.onMessage.addListener(
+  function(request, sender, sendResponse) {
+    console.log(sender.tab ?
+                "from a content script:" + sender.tab.url :
+                "from the extension");
+      console.log(request.videoTime);
+      document.getElementById("time").value=request.videoTime;
+  });
