@@ -1,9 +1,10 @@
 window.setInterval(function(){
-    var videotime = document.querySelector( "video" ).currentTime;
-    console.log(videotime);
+    var videoelement = document.querySelector( "video" );
+    if (videoelement){ 
+	var videotime = videoelement.currentTime;
 
-    chrome.runtime.sendMessage({videoTime: videotime});
-    
+	chrome.runtime.sendMessage({videoTime: videotime, type: 'update time'});
+    }
 }, 5000);
 
 

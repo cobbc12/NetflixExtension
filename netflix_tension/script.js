@@ -1,6 +1,11 @@
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 var url = tabs[0].url;
     document.getElementById("url").value=url;
+
+    chrome.runtime.sendMessage({type: 'getTime', url: url}, function(response){
+	document.getElementById("videoTime").value=response.videoTime;
+});
+    
 });
 
 
@@ -10,17 +15,17 @@ function submitdata() {
     event.preventDefault();
 
     // The URL to POST our data to
-    var postUrl = 'https://homes.cs.washington.edu/~cobbc12/something.php';
+    var postUrl = 'https://homes.cs.washington.edu/~cobbc12/submit_tv_data.php';
 
     // Set up an asynchronous AJAX POST request
     var xhr = new XMLHttpRequest();
     xhr.open('POST', postUrl, true);
 
     // Prepare the data to be POSTed by URLEncoding each field's contents
-    var field1 = document.getElementById('field1');
+    var url = document.getElementById('url');
     var field2 = document.getElementById('field2');
     
-    var params = 'field1=' + encodeURIComponent(field1.value) +
+    var params = 'url=' + encodeURIComponent(url.value) +
                  '&field2=' + encodeURIComponent(field2.value);
 
     // Replace any instances of the URLEncoded space char with +
