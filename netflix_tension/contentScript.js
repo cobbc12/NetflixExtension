@@ -5,6 +5,7 @@ window.setInterval(function(){
 
 	chrome.runtime.sendMessage({videoTime: videotime, type: 'update time'});
     }
+    
 }, 5000);
 
 

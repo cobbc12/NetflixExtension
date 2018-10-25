@@ -1,9 +1,20 @@
 var user = 'cam'; 
 
+var metadata;
+
 var time = {}; 
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
+	if (request.type == 'getMetadata'){
+	    sendResponse({metadata:metadata});
+	}
+	if (request.type == 'getUser'){
+	    sendResponse({user:user});
+	}
+	if (request.type == 'update metadata'){
+	    metadata = request.metadata;
+	}
 	if (request.type == 'getTime'){
 	    sendResponse({videoTime:time[request.url]});
 	}

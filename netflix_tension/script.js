@@ -1,10 +1,19 @@
 chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-var url = tabs[0].url;
+    var url = tabs[0].url;
     document.getElementById("url").value=url;
 
     chrome.runtime.sendMessage({type: 'getTime', url: url}, function(response){
 	document.getElementById("videoTime").value=response.videoTime;
-});
+    });
+
+    chrome.runtime.sendMessage({type: 'getMetadata', url: url}, function(response){
+	document.getElementById("metadata").value=response.metadata;
+    });
+    chrome.runtime.sendMessage({type: 'getUser', url:url}, function(response){
+	document.getElementById("user").value=response.user;
+    });
+
+    
     
 });
 
@@ -23,10 +32,10 @@ function submitdata() {
 
     // Prepare the data to be POSTed by URLEncoding each field's contents
     var url = document.getElementById('url');
-    var field2 = document.getElementById('field2');
+    var videoTime = document.getElementById('videoTime');
     
     var params = 'url=' + encodeURIComponent(url.value) +
-                 '&field2=' + encodeURIComponent(field2.value);
+                 '&videoTime=' + encodeURIComponent(videoTime.value);
 
     // Replace any instances of the URLEncoded space char with +
     params = params.replace(/%20/g, '+');
