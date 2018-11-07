@@ -1,6 +1,16 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>UNIVERSITY OF WASHINGTON CONSENT FORM</title>
+    <link rel="stylesheet" href="materialicons.css">
+    <link rel="stylesheet" href="material.blue-red.min.css">
+    <link rel="stylesheet" href="consent.css">
+    <script defer src="material.min.js"></script>
+</head>
+<body>
 <h1>UNIVERSITY OF WASHINGTON CONSENT FORM</h1>
 Researchers: Tadayoshi Kohno, Associate Professor, Paul G. Allen School of
-Computer Science and Engineering, (206) xxx-xxxx.
+Computer Science and Engineering, (206) 685-4853.
 
 <h2>Video Survey</h2>
 We are asking you to be in a research study. This form gives you information to
@@ -25,9 +35,10 @@ answer these questions with a mouse and/or keyboard, you may also consent
 to verbally answering certain questions (for example, if you are watching on a
 TV and do not want to use your phone or laptop to answer). When you consent to
 verbally answer questions, we will use your browser's speech recognition API to
-convert your speech into text. While your voice is temporarily recorded, we will
-only receive your responses in text form. You may decline to answer any question
-at any time without penalty. You may also temporarily disable or uninstall this
+convert your speech into text. While we will only receive your responses in text
+form, your browser may upload raw recordings to its servers and use it in
+accordance with its privacy policies. You may decline to answer any question at
+any time without penalty. You may also temporarily disable or uninstall this
 extension to avoid any data being collected. No data will be collected in your
 browser's Incognito mode. We may also collect information about your usage of
 the extension (such as how often you use it and when you consented to
@@ -89,8 +100,8 @@ consent form (available at any time through this extension's options) and
 obtain their consent to be potentially recorded and transcribed.
 
 <h2>RESEARCH-RELATED INJURY</h2>
-If you think you have been harmed from being in this research, contact Yoshi
-Kohno at yoshi@cs.washington.edu or (206) xxx-xxxx.
+If you think you have been harmed from being in this research, contact Tadayoshi
+Kohno at yoshi@cs.washington.edu or (206) 685-4853.
 
 <h2>CONSENT</h2>
 By clicking the enable button below, you agree to the following statement:
@@ -102,3 +113,13 @@ I can contact one of the researchers listed on the first page of this consent
 form. If I have questions about my rights as a research subject, I can call the
 Human Subjects Division at (206) 543-0098 or call collect at (206) 221-5940.
 I will receive a copy of this consent form.</blockquote>
+
+<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="consent-switch">
+    <span class="mdl-switch__label">I agree and consent to participate in this study.</span>
+    <input type="checkbox" id="consent-switch" class="mdl-switch__input">
+  </label>
+  
+<script type="text/javascript" src="consent.js"></script>
+
+</body>
+</html>
