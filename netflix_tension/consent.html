@@ -2,12 +2,14 @@
 <head>
     <meta charset="utf-8" />
     <title>UNIVERSITY OF WASHINGTON CONSENT FORM</title>
-    <link rel="stylesheet" href="materialicons.css">
-    <link rel="stylesheet" href="material.blue-red.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="material.blue-red.css">
     <link rel="stylesheet" href="consent.css">
-    <script defer src="material.min.js"></script>
+    <script defer src="material.js"></script>
 </head>
-<body>
+<body class="mdl-color--blue-100">
+
+<div id="consentcontent">
 <h1>UNIVERSITY OF WASHINGTON CONSENT FORM</h1>
 Researchers: Tadayoshi Kohno, Associate Professor, Paul G. Allen School of
 Computer Science and Engineering, (206) 685-4853.
@@ -34,9 +36,9 @@ or your opinions about certain security and privacy practices. While you can
 answer these questions with a mouse and/or keyboard, you may also consent
 to verbally answering certain questions (for example, if you are watching on a
 TV and do not want to use your phone or laptop to answer). When you consent to
-verbally answer questions, we will use your browser's speech recognition API to
-convert your speech into text. While we will only receive your responses in text
-form, your browser may upload raw recordings to its servers and use it in
+verbally answer questions, we will use your browser's speech recognition feature
+to convert your speech into text. While we will only receive your responses in
+text form, your browser may upload raw recordings to its servers and use it in
 accordance with its privacy policies. You may decline to answer any question at
 any time without penalty. You may also temporarily disable or uninstall this
 extension to avoid any data being collected. No data will be collected in your
@@ -104,7 +106,7 @@ If you think you have been harmed from being in this research, contact Tadayoshi
 Kohno at yoshi@cs.washington.edu or (206) 685-4853.
 
 <h2>CONSENT</h2>
-By clicking the enable button below, you agree to the following statement:
+By clicking the button below, you agree to the following statement:
 
 <blockquote>This study has been explained to me. I volunteer to take part in
 this research. I have had a chance to ask questions. If I have questions later
@@ -114,12 +116,12 @@ form. If I have questions about my rights as a research subject, I can call the
 Human Subjects Division at (206) 543-0098 or call collect at (206) 221-5940.
 I will receive a copy of this consent form.</blockquote>
 
-<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="consent-switch">
-    <span class="mdl-switch__label">I agree and consent to participate in this study.</span>
-    <input type="checkbox" id="consent-switch" class="mdl-switch__input">
-  </label>
-  
+<div style="text-align: center">
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+    I agree and consent to participate
+</button>
+</div>
+</div>
 <script type="text/javascript" src="consent.js"></script>
-
 </body>
 </html>
