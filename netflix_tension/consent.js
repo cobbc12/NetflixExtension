@@ -7,11 +7,21 @@ function uuidv4() {
   
 document.getElementById('agreeButton').addEventListener('click', function(evt) {
     evt.preventDefault();
-    uid = uuidv4();
-    chrome.storage.local.set({'uid': uid, 'consentLocalTimestamp': Date.now()});
+    let uid = uuidv4();
+    let consentLocalTimestamp = Date.now();
+    chrome.storage.local.set({'uid': uid,
+        'consentLocalTimestamp': consentLocalTimestamp});
     window.setTimeout(function() {
         window.close();
     }, 150);
+    let data = new FormData();
+    data.set('type', 'consent');
+    data.set('uid', uid);
+    data.set('localTimestamp', consentLocalTimestamp);
+    fetch("https://homes.cs.washington.edu/~cobbc12/submit_tv_data.php", {
+        method: "POST",
+        body: data
+    });
 });
 
 chrome.storage.local.get(['uid', 'consentLocalTimestamp'], function(items) {
