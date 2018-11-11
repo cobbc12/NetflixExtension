@@ -1,27 +1,45 @@
 {
- "manifest_version": 2,
- "name": "Netflextension",
- "description": "we doin this shit.",
- "version": "1",
+    "manifest_version": 2,
+    "name": "Netflextension",
+    "description": "we doin this shit.",
+    "version": "0.2.0",
     "author": "Camille Cobb",
-"browser_action": {
-  "default_popup": "popup.html"
- },
-    "permissions": ["activeTab", "tabs"],
-    "content_scripts": [
-	{
-	    "matches": ["https://*/*"],
-	    "js": ["contentScript.js"]
-	},
-	{
-	    "matches": ["https://www.youtube.com/watch*"],
-	    "js": ["youtube_contentScript.js"]
-	}
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "storage",
+        "tabs",
+        "webRequest",
+        "*://*.netflix.com/"
     ],
-     "background": {
-    "scripts": ["background.js"],
-    "persistent": true
-  }
-
-    
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*"
+            ],
+            "js": [
+                "contentScript.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://www.youtube.com/watch*"
+            ],
+            "js": [
+                "youtube_contentScript.js"
+            ]
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": true
+    },
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false
+    }
 }
