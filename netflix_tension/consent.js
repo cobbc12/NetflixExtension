@@ -8,5 +8,17 @@ function uuidv4() {
 document.getElementById('agreeButton').addEventListener('click', function(evt) {
     evt.preventDefault();
     uid = uuidv4();
-    chrome.storage.local.set({'uid': uid});
+    chrome.storage.local.set({'uid': uid, 'consentLocalTimestamp': Date.now()});
+    window.setTimeout(function() {
+        window.close();
+    }, 150);
+});
+
+chrome.storage.local.get(['uid', 'consentLocalTimestamp'], function(items) {
+    if ('uid' in items) {
+        var agreeButton = document.getElementById('agreeButton');
+        agreeButton.setAttribute('disabled', true);
+        agreeButton.textContent = 'You agreed on ' +
+            new Date(items.consentLocalTimestamp).toDateString();
+    }
 });
